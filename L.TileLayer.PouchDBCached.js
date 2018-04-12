@@ -9,13 +9,16 @@ L.TileLayer.addInitHook(function() {
 	}
 
 	this._db = new PouchDB('offline-tiles');
+	console.log(this._db);
 	this._canvas = document.createElement('canvas');
+	console.log(this._canvas);
 
 	if (!(this._canvas.getContext && this._canvas.getContext('2d'))) {
 		// HTML5 canvas is needed to pack the tiles as base64 data. If
 		//   the browser doesn't support canvas, the code will forcefully
 		//   skip caching the tiles.
 		this._canvas = null;
+		console.log("canvas fail");
 	}
 });
 
